@@ -1,0 +1,7 @@
+- **Step 1.** Select a sample dataset or upload your own.     
+- **Step 2.** If you have uploaded your own datasdet, specify the following:
+    - The column containing your data
+    - The column containing the labels to be used on the x-axis
+    - If applicable, the stage column. 
+- **Note:** When a sample dataset is selected, the data column, label column, and stage column are selected automatically.
+- **Step 3.** Adjust the appearance of the XmR chart using XmR Display Controls.
