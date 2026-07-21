@@ -25,7 +25,7 @@ A web application for generating XmR charts, the most useful type of process beh
 
 ## Overview
 
-Try the live app at [xmrit.streamlit.app](https://xmrit.streamlit.app).
+Try the live app at [xmr-chart-it.streamlit.app](https://xmrit.streamlit.app).
 
 When a dataset is composed of logically comparable individual values that retain their time-ordered sequence, the only tool capable of characterizing process behavior is the XmR chart. XmR charts characterize process behavior as either predictable or unpredictable by comparing individual values and moving ranges with three calculated process limits: the Upper Process Limit (UPL), the Lower Process Limit (LPL), and the Upper Range Limit (URL). When one or more values fall outside the process limits, the underlying causal system is characterized as unpredictable. Here, both common causes of routine variation and assignable causes of exceptional variation influence process behavior. Although few in number, assignable causes are dominant in their effect. They cause a process to bounce and shift in unpredictable ways. When all of the values fall inside the process limits, the process is characterized as predictable. Here, only common causes of routine variation influence process behavior. As a result, future process behavior can be predicted within the calculated process limits.
 
