@@ -10,6 +10,37 @@ from components.chart_styles import (
     get_mr_marker_styles
 )
 
+
+def build_empty_xmr_figure(figure_height):
+    """
+    Create an empty XmR figure skeleton (subplots + layout, no traces).
+
+    Shared by create_xmr_chart and the stage-view code path so that
+    both start from identical layout without duplicating traces.
+
+    Returns
+    -------
+    plotly.graph_objects.Figure
+    """
+
+    fig = make_subplots(
+        rows=2,
+        cols=1,
+        vertical_spacing=0.05
+    )
+
+    fig.update_layout(
+        height=figure_height,
+        showlegend=False,
+        margin=dict(t=25, b=0),
+        xaxis2=dict(showticklabels=False),
+        yaxis=dict(title="Individual Value (X)"),
+        yaxis2=dict(title="Moving Range (mR)")
+    )
+
+    return fig
+
+
 def create_xmr_chart(
     data,
     moving_range,
@@ -33,11 +64,7 @@ def create_xmr_chart(
     plotly.graph_objects.Figure
     """
 
-    fig = make_subplots(
-        rows=2,
-        cols=1,
-        vertical_spacing=0.05
-    )
+    fig = build_empty_xmr_figure(figure_height)
 
 
     # -----------------------------
@@ -115,7 +142,7 @@ def create_xmr_chart(
 
     fig.add_trace(
         go.Scatter(
-            x=list(range(2, len(moving_range)+1)),
+            x=list(range(2, len(moving_range)+2)),
             y=moving_range,
             mode=line_mode,
 
@@ -137,15 +164,6 @@ def create_xmr_chart(
 
         row=2,
         col=1
-    )
-
-    fig.update_layout(
-    height=figure_height,
-    showlegend=False,
-    margin=dict(t=0, b=0),
-    xaxis2=dict(showticklabels=False),
-    yaxis=dict(title="Individual Value (X)"),
-    yaxis2=dict(title="Moving Range (mR)")
     )
 
     return fig

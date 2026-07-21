@@ -6,7 +6,7 @@ from components.dataset_selector import (
     render_sample_selectors,
     render_stage_customization
 )
-from components.charts import create_xmr_chart
+from components.charts import create_xmr_chart, build_empty_xmr_figure
 from components.chart_annotations import add_process_limit_lines, add_process_limit_annotations
 from components.chart_stages import add_stage_traces, add_stage_boundaries, add_stage_labels
 from calculations.xmr_limits import calculate_xmr_limits
@@ -149,18 +149,18 @@ def render_tab1(dataset_columns, dataset_questions):
     )
 
     # --- CHART ---
-    fig = create_xmr_chart(
-        data=data, moving_range=moving_range, marker_size=marker_size,
-        figure_height=figure_height, mean=mean, UPL=UPL, LPL=LPL, URL=URL, ave_mR=ave_mR,
-        show_limits=show_limits, rule_2=rule_2, rule_3=rule_3, line_mode=line_mode
-    )
-
-    if not show_stages:
-        fig = add_process_limit_lines(fig, mean, UPL, LPL, ave_mR, URL, show_limits)
-        fig = add_process_limit_annotations(fig, mean, UPL, LPL, ave_mR, URL, round_value, show_annotations)
-    elif stage_column is not None:
+    if show_stages and stage_column is not None:
+        fig = build_empty_xmr_figure(figure_height)
         fig = add_stage_traces(fig, data, stages, unique_stages, show_limits, rule_2, rule_3, line_mode)
         fig = add_stage_boundaries(fig, stages)
         fig = add_stage_labels(fig, stages, unique_stages, custom_stage_labels, show_stage_labels)
+    else:
+        fig = create_xmr_chart(
+            data=data, moving_range=moving_range, marker_size=marker_size,
+            figure_height=figure_height, mean=mean, UPL=UPL, LPL=LPL, URL=URL, ave_mR=ave_mR,
+            show_limits=show_limits, rule_2=rule_2, rule_3=rule_3, line_mode=line_mode
+        )
+        fig = add_process_limit_lines(fig, mean, UPL, LPL, ave_mR, URL, show_limits)
+        fig = add_process_limit_annotations(fig, mean, UPL, LPL, ave_mR, URL, round_value, show_annotations)
 
     st.plotly_chart(fig, use_container_width=True)
