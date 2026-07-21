@@ -1,6 +1,25 @@
-# XmR Chart App
+# XmR Chart-It
 
-A application for generating XmR charts, the most useful type of process behavior. Built as part of [The Broken Quality Initiative](https://www.brokenquality.com/).
+A web application for generating XmR charts, the most useful type of process behavior. Built as part of [The Broken Quality Initiative](https://www.brokenquality.com/).
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+  - [Requirements](#requirements)
+  - [Running the App](#running-the-app)
+- [File Structure](#file-structure)
+- [How to Use](#how-to-use)
+  - [Selecting a Sample Dataset](#selecting-a-sample-dataset)
+  - [Uploading Your Own Data](#uploading-your-own-data)
+  - [XmR Chart Display Controls](#xmr-chart-display-controls)
+  - [Stage View](#stage-view)
+- [Process Limit Formulas](#process-limit-formulas)
+- [Sample Datasets](#sample-datasets)
+- [About](#about)
 
 ---
 
