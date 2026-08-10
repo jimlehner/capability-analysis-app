@@ -36,7 +36,7 @@ def display_resources():
         st.markdown(
             """
             <div class="store-button-wrapper">
-                <a href="https://taguchi-loss-calculator.streamlit.app/" target="_blank">
+                <a href="https://taguchiloss.streamlit.app/" target="_blank">
                     <button class="store-button">Try the Taguchi Loss Calculator</button>
                 </a>
             </div>
@@ -80,7 +80,7 @@ def display_resources():
         st.markdown(
             """
             <div class="store-button-wrapper">
-                <a href="https://www.brokenquality.com/workbooks-quick-guides/p/characterization-flowchart-pdf" target="_blank">
+                <a href="https://www.brokenquality.com/store/p/characterization-flowchart-pdf" target="_blank">
                     <button class="store-button">Get the PDF</button>
                 </a>
             </div>

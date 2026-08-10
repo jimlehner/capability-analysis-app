@@ -18,6 +18,184 @@ from components.chart_styles import (
 )
 
 
+# def add_stage_traces(
+#     fig,
+#     data,
+#     stages,
+#     unique_stages,
+#     show_limits,
+#     rule_2,
+#     rule_3,
+#     line_mode
+# ):
+#     """
+#     Add stage-specific X and mR traces.
+
+#     Each stage receives its own:
+#     - mean
+#     - UPL
+#     - LPL
+#     - URL
+#     - rule detection
+
+#     """
+
+#     for stage in unique_stages:
+
+#         stage_mask = stages == stage
+
+#         stage_data = (
+#             data[stage_mask]
+#             .reset_index(drop=True)
+#         )
+
+
+#         stage_x = [
+#             j + 1
+#             for j, m in enumerate(stage_mask)
+#             if m
+#         ]
+
+
+#         # -------------------------
+#         # Stage calculations
+#         # -------------------------
+
+#         stage_mean = stage_data.mean()
+
+#         stage_mR = abs(stage_data.diff())
+
+#         stage_ave_mR = stage_mR.mean()
+
+
+#         stage_UPL = (
+#             stage_mean +
+#             (2.660 * stage_ave_mR)
+#         )
+
+#         stage_LPL = max(
+#             0,
+#             stage_mean -
+#             (2.660 * stage_ave_mR)
+#         )
+
+#         stage_URL = (
+#             3.268 *
+#             stage_ave_mR
+#         )
+
+
+#         # -------------------------
+#         # Detection rules
+#         # -------------------------
+
+#         stage_run_mask = (
+#             apply_rule_2(
+#                 list(stage_data),
+#                 stage_mean
+#             )
+#             if rule_2
+#             else [False] * len(stage_data)
+#         )
+
+
+#         stage_zone_mask = (
+#             apply_rule_3(
+#                 list(stage_data),
+#                 stage_UPL,
+#                 stage_LPL,
+#                 stage_mean
+#             )
+#             if rule_3
+#             else [False] * len(stage_data)
+#         )
+
+
+#         # -------------------------
+#         # Marker styles
+#         # -------------------------
+
+#         s_colors, s_line_colors, s_sizes = get_x_marker_styles(
+#             stage_data,
+#             stage_UPL,
+#             stage_LPL,
+#             stage_run_mask,
+#             stage_zone_mask,
+#             show_limits
+#         )
+
+
+#         s_mr_colors, s_mr_line_colors, s_mr_sizes = get_mr_marker_styles(
+#             stage_mR,
+#             stage_URL,
+#             show_limits
+#         )
+
+
+#         # -------------------------
+#         # X chart trace
+#         # -------------------------
+
+#         fig.add_trace(
+#             go.Scatter(
+#                 x=stage_x,
+#                 y=stage_data,
+#                 mode=line_mode,
+
+#                 line=dict(
+#                     color="steelblue",
+#                     width=2
+#                 ),
+
+#                 marker=dict(
+#                     size=s_sizes,
+#                     color=s_colors,
+
+#                     line=dict(
+#                         color=s_line_colors,
+#                         width=1 if show_limits else 0
+#                     )
+#                 )
+#             ),
+
+#             row=1,
+#             col=1
+#         )
+
+
+#         # -------------------------
+#         # mR chart trace
+#         # -------------------------
+
+#         fig.add_trace(
+#             go.Scatter(
+#                 x=stage_x[1:],
+#                 y=stage_mR[1:],
+#                 mode=line_mode,
+
+#                 line=dict(
+#                     color="steelblue",
+#                     width=2
+#                 ),
+
+#                 marker=dict(
+#                     size=s_mr_sizes[1:],
+#                     color=s_mr_colors[1:],
+
+#                     line=dict(
+#                         color=s_mr_line_colors[1:],
+#                         width=1 if show_limits else 0
+#                     )
+#                 )
+#             ),
+
+#             row=2,
+#             col=1
+#         )
+
+
+#     return fig
+
 def add_stage_traces(
     fig,
     data,
@@ -133,6 +311,66 @@ def add_stage_traces(
 
 
         # -------------------------
+        # Stage x-range (used to bound the limit lines to this stage only)
+        # -------------------------
+
+        x_start = stage_x[0] - 0.5
+        x_end = stage_x[-1] + 0.5
+
+
+        # -------------------------
+        # X chart limit lines
+        # -------------------------
+
+        if show_limits:
+
+            fig.add_shape(
+                type="line",
+                x0=x_start,
+                x1=x_end,
+                y0=stage_mean,
+                y1=stage_mean,
+                line=dict(
+                    color="gray",
+                    dash="dash",
+                    width=1
+                ),
+                row=1,
+                col=1
+            )
+
+            fig.add_shape(
+                type="line",
+                x0=x_start,
+                x1=x_end,
+                y0=stage_UPL,
+                y1=stage_UPL,
+                line=dict(
+                    color="red",
+                    dash="dash",
+                    width=1
+                ),
+                row=1,
+                col=1
+            )
+
+            fig.add_shape(
+                type="line",
+                x0=x_start,
+                x1=x_end,
+                y0=stage_LPL,
+                y1=stage_LPL,
+                line=dict(
+                    color="red",
+                    dash="dash",
+                    width=1
+                ),
+                row=1,
+                col=1
+            )
+
+
+        # -------------------------
         # X chart trace
         # -------------------------
 
@@ -161,6 +399,28 @@ def add_stage_traces(
             row=1,
             col=1
         )
+
+
+        # -------------------------
+        # mR chart limit line
+        # -------------------------
+
+        if show_limits:
+
+            fig.add_shape(
+                type="line",
+                x0=x_start,
+                x1=x_end,
+                y0=stage_URL,
+                y1=stage_URL,
+                line=dict(
+                    color="red",
+                    dash="dash",
+                    width=1
+                ),
+                row=2,
+                col=1
+            )
 
 
         # -------------------------

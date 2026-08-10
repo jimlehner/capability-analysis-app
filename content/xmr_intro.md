@@ -1,8 +1,8 @@
 ## XmR charts: The most useful type of process behavior chart
 
 When a dataset is the by-product of a process or system and it retains its time-ordered sequence, the most effective way to make sense
-of this data is the XmR chart, the most useful type of process behavior chart. By characterizing process behavior as predictable or 
-unpredictable using calculated limits called process limits, process behavior charts allow us to determine when it is economical to 
+of it is the XmR chart, the most useful type of process behavior chart. By characterizing process behavior as predictable or 
+unpredictable using calculated limits (process limits), process behavior charts allow us to determine when it is economical to 
 take actions to improve a process and when it is economical to leave a process alone.
 
 [FIGURE_1]

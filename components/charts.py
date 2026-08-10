@@ -32,7 +32,7 @@ def build_empty_xmr_figure(figure_height):
     fig.update_layout(
         height=figure_height,
         showlegend=False,
-        margin=dict(t=25, b=0),
+        margin=dict(t=25, b=0, r=20),
         xaxis2=dict(showticklabels=False),
         yaxis=dict(title="Individual Value (X)"),
         yaxis2=dict(title="Moving Range (mR)")
@@ -114,6 +114,7 @@ def create_xmr_chart(
             x=list(range(1, len(data)+1)),
             y=data,
             mode=line_mode,
+            cliponaxis=False,
 
             line=dict(
                 color="steelblue",
@@ -145,6 +146,7 @@ def create_xmr_chart(
             x=list(range(2, len(moving_range)+2)),
             y=moving_range,
             mode=line_mode,
+            cliponaxis=False,
 
             line=dict(
                 color="steelblue",

@@ -104,19 +104,19 @@ def add_process_limit_annotations(
             "y": mean,
             "text": f"X̄: {mean:.{round_value}f}",
             "yref": "y1",
-            "borderpad": 1
+            "borderpad": 4
         },
         {
             "y": UPL,
             "text": f"UPL: {UPL:.{round_value}f}",
             "yref": "y1",
-            "borderpad": 1
+            "borderpad": 4
         },
         {
             "y": LPL,
             "text": f"LPL: {LPL:.{round_value}f}",
             "yref": "y1",
-            "borderpad": 1
+            "borderpad": 4
         },
         {
             "y": ave_mR,
@@ -128,7 +128,7 @@ def add_process_limit_annotations(
             "y": URL,
             "text": f"URL: {URL:.{round_value}f}",
             "yref": "y2",
-            "borderpad": 1
+            "borderpad": 4
         },
     ]
 
