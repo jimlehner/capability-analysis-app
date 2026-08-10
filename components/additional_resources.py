@@ -36,7 +36,7 @@ def display_resources():
         st.markdown(
             """
             <div class="store-button-wrapper">
-                <a href="https://taguchiloss.streamlit.app/" target="_blank">
+                <a href="https://taguchi-loss.streamlit.app/" target="_blank">
                     <button class="store-button">Try the Taguchi Loss Calculator</button>
                 </a>
             </div>
