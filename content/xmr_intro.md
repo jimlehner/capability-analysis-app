@@ -1,4 +1,4 @@
-## XmR charts: The most useful type of process behavior chart
+## Understanding the Process Capability Indices
 
 When a dataset is the by-product of a process or system and it retains its time-ordered sequence, the most effective way to make sense
 of it is the XmR chart, the most useful type of process behavior chart. By characterizing process behavior as predictable or 

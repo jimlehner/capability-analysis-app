@@ -11,7 +11,7 @@ def display_resources():
         st.markdown(
             """
             <div class="store-button-wrapper">
-                <a href="https://www.brokenquality.com/store/p/virus-of-variation-epub" target="_blank">
+                <a href="https://store.brokenquality.com/b/virus-of-variation-epub" target="_blank">
                     <button class="store-button">Get the Book</button>
                 </a>
             </div>
@@ -58,7 +58,7 @@ def display_resources():
         st.markdown(
             """
             <div class="store-button-wrapper">
-                <a href="https://www.brokenquality.com/store/p/understanding-process-capability-epub" target="_blank">
+                <a href="https://store.brokenquality.com/b/process-capability-indices" target="_blank">
                     <button class="store-button">Get the EPUB</button>
                 </a>
             </div>
@@ -80,7 +80,7 @@ def display_resources():
         st.markdown(
             """
             <div class="store-button-wrapper">
-                <a href="https://www.brokenquality.com/store/p/characterization-flowchart-pdf" target="_blank">
+                <a href="https://store.brokenquality.com/b/characterization-flowchart" target="_blank">
                     <button class="store-button">Get the PDF</button>
                 </a>
             </div>

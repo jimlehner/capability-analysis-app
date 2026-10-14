@@ -6,7 +6,11 @@ from components.dataset_selector import (
     render_sample_selectors,
     render_stage_customization
 )
-from components.charts import create_xmr_chart, build_empty_xmr_figure
+from components.charts import (
+    create_xmr_chart, 
+    build_empty_xmr_figure,
+    build_empty_histogram_figure
+)
 from components.chart_annotations import add_process_limit_lines, add_process_limit_annotations
 from components.chart_stages import add_stage_traces, add_stage_boundaries, add_stage_labels
 from calculations.xmr_limits import calculate_xmr_limits
