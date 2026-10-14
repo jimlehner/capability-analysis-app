@@ -9,7 +9,7 @@ def display_markdown_file(filename):
     parts = content.split("\n\n")
 
     figures = {
-        "[FIGURE_TOLERANCE]": "figures/EQ_Tolerance.png",
+        "[FIGURE_TOLERANCE]": "figures/EQ_tolerance.png",
         "[FIGURE_DNS]": "figures/EQ_DNS.png",
         "[FIGURE_SIGMAX]": "figures/EQ_sigmax.png",
         "[FIGURE_SD]": "figures/EQ_Global_SD.png",
