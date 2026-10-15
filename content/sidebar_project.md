@@ -2,6 +2,6 @@ It is a widely held but wrong belief that numbers that are different are evidenc
 
 The trouble with this approach is that it is built on false premise. In the mathematical plan, where values are fixed, numbers that are not the same are always different. But we do not live in the mathematical plane, we live in the real world. In the real world, numbers that are different are NOT always evidence of difference. In fact, two numbers can be different and still represent the same thing. To operate without recognizing this truth is to ignore the fact that variation, whether we like it or not, always exerts an influence.
 
-The Broken Quality Initiative is on a mission to teach the theory and practical skills that make reducing costs and improving the quality of manufactured products possible. We are on a mission to make simple comparisons a thing of the past by teaching engineers how to understand variation through the lens of process behavior charts.
+At The Math Matters and The Broken Quality Initiative, we teach the practical skills that make reducing costs and improving the quality of manufactured products possible. From understanding descriptive statistics to constructing and interpreting process behavior charts, we are on a mission to hone your numerical and data literacy.
 
-To learn more about process behavior charts and the science of variation, visit [BrokenQuality.com](https://www.brokenquality.com/)
+To learn more about process behavior charts and hone your numerical literacy, visit [The Math Matters](https://themathmatters.substack.com/) and [BrokenQuality.com](https://www.brokenquality.com/)

@@ -9,7 +9,7 @@ def display_sidebar():
     with st.sidebar:
         
         st.image(
-            "figures/Broken_quality_logo.png",
+            "figures/mathmatters_logo.png",
             use_container_width=True
         )
         
