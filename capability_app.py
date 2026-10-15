@@ -12,11 +12,11 @@ from components.charts import build_process_histogram
 from config.datasets import dataset_columns
 from config.questions import dataset_questions
 
-im = "📈"
+im = "🔬"
 st.set_page_config(
     page_title="Honest Capability Analysis",
     page_icon=im,
-    initial_sidebar_state='auto',
+    initial_sidebar_state='collapsed',
     layout="wide"
 )
 
@@ -35,6 +35,22 @@ load_css("styles.css")
 st.title("Honest Process Capability Analysis")
 
 st.markdown("### A web app for calculating the process capability indices from [The Math Matters](https://themathmatters.substack.com) and [The Broken Quality Initiative](https://www.brokenquality.com/)")
+
+with st.expander("What makes capability analysis honest?"):
+    st.write("The four standard indexes in common use today are the capability ratio (Cp), centered capability ratio (Cpk), performance ratio (Pp), and centered " \
+    "performance ratio (Ppk). Collectively, these four indexes incorporate all of the information describing the relationship between the process and the specifications. " \
+    "Over the years, additional numerical summaries have been created. They are unnecessary. If you want to perform an honest capability analysis, your analysis will stay " \
+    "focused on these four.")
+
+    st.write("Moreover, many have been taught that the capability indexes only apply when a dataset is normally distributed. But othing in the formulas makes any demand " \
+    "upon the shape of the histogram (See [Does Capability Require Normality?](https://www.spcpress.com/pdf/2025/403Sep22DoesCapablityRequireNormality.pdf) by Donald J. Wheeler). As functions of the data, the capability and " \
+    "performance indexes have no preference for one probability model over the other. In fact, the uncertainties associated with different probability models make the " \
+    "discussion of which model to use an argument over noise. When the inherent uncertainties of different models are taken into account, they are indistingusihable "
+    "(See [Converting Capabilities: What difference does the probability model make?](https://www.spcpress.com/pdf/DJW404.pdf) by Donald J. Wheeler).")
+
+    st.write("So what makes a process capability analysis honest? The analysis is honest when it uses the four indexes listed above and does not assert that a specific " \
+    "proabability model will produce more accurate results. All proabability models are unverified assumptions that allow for the computation of infinitesimal areas in " \
+    "the extreme tails, but these computations do not represent reality.")
 
 # --- SIDEBAR ---
 display_sidebar()
