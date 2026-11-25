@@ -97,10 +97,16 @@ def display_capability_analysis(dataset_columns):
 
     # --- COLUMN SELECTION ---
     if uploaded_file is not None:
-        data_column, label_column, stage_column = render_upload_selectors(df)
+        data_column, USL, LSL = render_upload_selectors(df)
+
+        if data_column is None:
+            st.info("Please select a data column to continue.")
+            return
+
     else:
         description = dataset_columns.get(selected_file, {}).get("description")
         st.divider()
+
         if description:
             st.markdown(
                 f"### Selected dataset: <span style='color:#d72323'>{dataset_columns[selected_file]['name']}</span>",
@@ -108,7 +114,9 @@ def display_capability_analysis(dataset_columns):
             )
             st.markdown(description)
 
-        data_column, USL, LSL = render_sample_selectors(df, selected_file, dataset_columns)
+        data_column, USL, LSL = render_sample_selectors(
+            df, selected_file, dataset_columns
+        )
 
     data = df[data_column].dropna()
 

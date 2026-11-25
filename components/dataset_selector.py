@@ -10,13 +10,16 @@ def render_upload_selectors(df):
         "Select the data column of the uploaded CSV",
         [None] + list(df.columns), index=0
     )
-    USL = col2.input(
-        "Enter Upper Specification Limit (USL)",
-        [None, "Default (1 to n)"] + list(df.columns), index=0
+    USL = col2.number_input(
+    "Enter Upper Specification Limit (USL)",
+    value=0.0,
+    format="%.3f"
     )
+
     LSL = col3.number_input(
         "Enter Lower Specification Limit (LSL)",
-        ["Not Applicable"] + list(df.columns), index=0
+        value=0.0,
+        format="%.3f"
     )
 
     return data_column, USL, LSL
